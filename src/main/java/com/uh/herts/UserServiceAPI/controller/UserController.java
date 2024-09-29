@@ -25,7 +25,7 @@ public class UserController {
     // Create a new user
     @PostMapping("/register")
     public ResponseEntity<RegisterResDTO> createUser(@Valid @RequestBody RegisterDTO registerDTO) {
-//    public ResponseEntity<User> createUser(@Valid @RequestBody User user) {
+
 
         RegisterResDTO createdUser = userService.createUser(registerDTO);
         return ResponseEntity.ok(createdUser);
@@ -48,11 +48,11 @@ public class UserController {
     // Login endpoint
     @PostMapping("/login")
     public ResponseEntity<?> loginUser(@RequestBody LoginDTO loginRequest) {
-//        boolean isAuthenticated =
+
                 UserResDTO userResDTO = userService.authenticateUser(loginRequest.getUsername(), loginRequest.getPassword());
         if (userResDTO!=null) {
             return ResponseEntity.ok(userResDTO);
-//            return ResponseEntity.ok("Login successful");
+
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Authentication failed: Invalid username or password");
         }

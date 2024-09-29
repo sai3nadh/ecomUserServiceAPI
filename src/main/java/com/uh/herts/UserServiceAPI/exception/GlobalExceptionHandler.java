@@ -70,7 +70,7 @@ public class GlobalExceptionHandler {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("{\"error\": \"Internal server error\"}");
         }
-//        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorMessages);
+
     }
 
     @ExceptionHandler(UnexpectedTypeException.class)
